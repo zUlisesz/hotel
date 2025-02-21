@@ -10,3 +10,6 @@ class Usuario:
 
     def getPassword(sefl):
         return sefl.__password
+    
+    def info(self):
+        return "Nombre: {}, Rol: {}".format(self.nombre , self.rol)
