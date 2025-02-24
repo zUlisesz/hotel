@@ -1,4 +1,4 @@
-class Recpcionista:
+class Recpcionista(Usuario):
 
     def revisarisponibilidad(sefl, recamara):
         pass
