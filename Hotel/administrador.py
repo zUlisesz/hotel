@@ -1,4 +1,4 @@
-class Administrador:
+class Administrador(Usuario):
 
     def registrar(self):
         pass
