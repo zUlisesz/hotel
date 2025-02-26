@@ -3,10 +3,11 @@ import json
 class Recamara:
     recamaras = []
 
-    def __init__(self, nombre, size, precio):
-        self.nombre = nombre
-        self.size = size
-        self.precio = precio
+    def __init__(self, numero, tipo, camas, costonoche):
+        self.numero = numero
+        self.tipo = tipo
+        self.camas = camas
+        self.costo = costonoche
         self.disponibilidad = True
         Recamara.recamaras.append(self)
 
@@ -17,9 +18,10 @@ class Recamara:
                 data = json.load(file)
                 for recamara_data in data:
                     Recamara(
-                        recamara_data['nombre'],
-                        recamara_data['size'],
-                        recamara_data['precio'],
+                        recamara_data['numero'],
+                        recamara_data['tipo'],
+                        recamara_data['camas'],
+                        recamara_data['costonoche'],
                         recamara_data[True]
                     )
         except FileNotFoundError:
@@ -35,9 +37,10 @@ class Recamara:
 
         for recamara in Recamara.recamaras:
             recamara_data = {
-                'nombre': recamara.nombre,
-                'size': recamara.size,
-                'precio': recamara.precio,
+                'numero': recamara.numero,
+                'tipo': recamara.tipo,
+                'camas': recamara.camas,
+                'costonoche': recamara.costonoche
                 'disponibilidad': recamara.disponibilidad
             }
             existing_data.append(recamara_data)
