@@ -1,3 +1,5 @@
+from reserva import Reserva
+from user import Usuario
 class Recpcionista(Usuario):
 
     def revisarisponibilidad(sefl, habitacion):
