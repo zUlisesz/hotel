@@ -1,5 +1,5 @@
 import json
-
+from tkinter import messagebox
 class Usuario:
     usuarios = []
 
@@ -7,7 +7,7 @@ class Usuario:
 
         self.nombre = nombre
         self.rol = rol
-        self.password = password
+        self.__password = password
         Usuario.usuarios.append(self)
 
     def get_info(self):
@@ -45,7 +45,7 @@ class Usuario:
             user_data = {
                 'nombre': user.nombre,
                 'rol': user.rol,
-                'password': user.password
+                'contraseña': user.__password
             }
             new_users.append(user_data)
 
@@ -55,6 +55,21 @@ class Usuario:
             with open(filename, 'w', encoding='utf-8') as file:
                 json.dump(existing_data, file, indent=4, ensure_ascii=False)
             Usuario.usuarios.clear()
-            print("Datso enviados correctamente a: {}".format(filename))
+            print("Datos enviados correctamente a: {}".format(filename))
         except Exception as e:
             print("{}".format(e))
+            
+        
+    @classmethod
+    def iniciar_sesion(cls, nombre, password):
+        verdadero = False
+        for usuario in Usuario.usuarios:
+            if usuario.nombre == nombre and usuario._Usuario__password == password:
+                print(f"Bienvenido {usuario.nombre}, acabas de iniciar sesión")
+                verdadero = True
+                return usuario
+
+        if verdadero == False:
+            messagebox.showinfo('Erro','usuario no existente')
+            
+        return None
