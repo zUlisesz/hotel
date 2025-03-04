@@ -162,8 +162,5 @@ def fboton():
 ulises = Administrador('Ulises','administrador', 'marshal')
 carlos = Usuario('Carlos','recepcionista','utf')
 
-ventanaInicio()
-carlos = Usuario('Carlos','recepcionista','utf')
-
 loadfiles()
 ventanaInicio()
